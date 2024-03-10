@@ -3,9 +3,11 @@ from food_manager.commands.commands import Add, Remove, ListFood
 from food_manager.utils.styles import MENU_CURSOR, MENU_CURSOR_STYLE, MENU_HIGHLIGHT_STYLE
 from food_manager.utils.db import get_data
 from food_manager.views import food_menu, settings_menu
+import time
 
 class MainMenu:
-    def __init__(self):      
+    def __init__(self):     
+        print(f"Today is {time.strftime('%A, %d %B %Y')}!") 
         self.options = [
             "Add food",
             "List all food",

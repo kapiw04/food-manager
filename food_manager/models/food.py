@@ -8,12 +8,14 @@ class Food:
     expiration_date: str
     quantity: int
     opened: bool = False
-    opened_date: str
+    opened_date: str = None
 
     def time_to_expire(self):
-        expiration_date = time.strptime(self.expiration_date, "%Y-%m-%d")
+        expiration_date = time.strptime(self.expiration_date, "%d-%m-%Y")
+        print(expiration_date)
         today = time.localtime()
-        return time.mktime(expiration_date) - time.mktime(today)
+        print(today)
+        return (time.mktime(expiration_date) - time.mktime(today)) // 86400
     
     def is_expired(self):
         return self.time_to_expire() < 0
