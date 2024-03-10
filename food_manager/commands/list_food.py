@@ -15,5 +15,15 @@ class ListFoodCommand:
             chosen_id = self.food_list.show()
             return chosen_id
 
+    def sort_data(self, data) -> list:
+        """
+        Sorts the data by expiration date
 
+        Args:
+            data (list): The data to be sorted
+
+        Returns:
+            list: The sorted data
+        """
+        return sorted(data, key=lambda k: k['expiration_date'])
             
