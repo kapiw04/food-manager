@@ -2,6 +2,7 @@ import os
 from food_manager.utils.constants import DB_PATH
 from pathlib import Path
 import json
+from food_manager.utils.settings import get_setting
 
 def db_path() -> Path:
     """
@@ -51,3 +52,16 @@ def get_data() -> dict:
         data = json.load(file)
         file.close()
     return data
+
+def sort_database() -> None:
+    """
+    Sorts the data by expiration date
+
+    Args:
+        data (list): The data to be sorted
+    """
+    data = get_data()
+    data.sort(key=lambda x: x[get_setting("sort_by")])
+    with open(db_path(), "w") as file:
+        json.dump(data, file)
+        file.close()

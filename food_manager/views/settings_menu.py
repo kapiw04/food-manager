@@ -1,6 +1,7 @@
 from simple_term_menu import TerminalMenu
 from food_manager.utils.styles import MENU_CURSOR, MENU_CURSOR_STYLE, MENU_HIGHLIGHT_STYLE
-from food_manager.utils.settings import get_settings, save_setting
+from food_manager.utils.settings import save_setting
+from food_manager.utils.db import sort_database
 
 class SettingsMenu:
     def __init__(self):      
@@ -41,4 +42,5 @@ class SortByMenu:
     
     def handleChoice(self, choice):
         save_setting("sort_by", choice)
+        sort_database()
         return choice

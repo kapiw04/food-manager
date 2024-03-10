@@ -31,8 +31,6 @@ class MainMenu:
             chosen_food_id = food_menu.show()
             if chosen_food_id != -1:
                 Remove.run(chosen_food_id)
-            else:
-                self.show()
         # elif selected_option == 3:
         #     Update().run()
         elif selected_option == 4:
@@ -43,3 +41,4 @@ class MainMenu:
         else:
             print("Goodbye!")
             exit(0)
+        self.show()
