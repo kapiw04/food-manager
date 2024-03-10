@@ -1,0 +1,1 @@
+DB_PATH = 'food_manager/db.json'
